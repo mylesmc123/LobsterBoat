@@ -10,6 +10,8 @@
 import os, sys
 import pathlib
 import urllib
+# from urllib.request import urlopen
+# from shutil import copyfileobj
 import pandas as pd
 import numpy as np
 import xarray as xr
@@ -63,6 +65,9 @@ def override_variable_attrs_from_template(ds, meta):
         if (k in ds):
              ds[k].attrs.update(vdict)
 # csv = urllib.request.urlretrieve(emoltURL, downloadDirectory+downloadFileName)
+# csv = urllib.request.urlretrieve(emoltURL, 'e.csv')
+# with urlopen(emoltURL) as in_stream, open(downloadDirectory+downloadFileName, 'wb') as out_file:
+#     copyfileobj(in_stream, out_file)
 try:
     csv = urllib.request.urlretrieve(emoltURL, downloadDirectory+'emolt_QCed.csv')
     # csv = urllib2.urlopen('http://emolt.org/emoltdata/emolt_QCed.csv')

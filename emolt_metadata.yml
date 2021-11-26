@@ -1,0 +1,64 @@
+title: NOAA Fisheries Science Center Drifter Data Temperature Profile Data from Lobster Boat Vessels.
+history: 2015-06-13 13:03:00 creation
+summary: >
+    These data are ocean profile data measured by profiling from Lobster Boat Vessels at a specific latitude, 
+    longitude, and date nominally from varied depths. 
+program: NOAA Fisheries Science Center
+comment: free text
+standard_name_vocabulary: CF Standard Name Table v67
+cdm_data_type: Profile
+featureType: Profile
+source: https://apps-nefsc.fisheries.noaa.gov/drifter/emolt_QCed.csv 
+Conventions: CF-1.7, ACDD-1.3
+license: These data may be redistributed and used without restriction.
+keywords: >
+    Oceans > Ocean Circulation > Ocean Currents,
+    Oceans > Ocean Temperature > Water Temperature,
+    sea_water_temperature
+keywords_vocabulary: Global Change Master Directory (GCMD) Earth Science Keywords; CF Standard Name Table v67 # Static
+institution: NOAA
+acknowledgement: N/A
+metadata_link: N/A
+references: https://apps-nefsc.fisheries.noaa.gov/drifter/
+# Geospatial
+geospatial_lat_units: degrees_north
+geospatial_lon_units: degrees_east
+#geospatial_vertical_units: N/A
+#geospatial_vertical_max: N/A
+#geospatial_vertical_min: N/A
+#geospatial_vertical_positive: N/A
+geospatial_bounds_crs: EPSG:4326
+#geospatial_bounds_vertical_crs: EPSG:5703
+sea_name: Atlantic Ocean
+
+# Time extents -
+# Omitted since data has no interval and is instantaneous.
+# time_coverage_resolution: P0  # ISO 8601 duration format for instantaneous irregular interval data (https://en.wikipedia.org/wiki/ISO_8601)
+
+# # Attribution  https://ioos.github.io/ioos-metadata/ioos-metadata-profile-v1-2.html#example-1
+creator_name: "NOAA Fisheries Science Center"
+creator_email: "james.manning@noaa.gov"
+creator_institution: "NOAA Fisheries Science Center"
+creator_address: "86 Water St"
+creator_city: "Woods Hole"
+creator_postalcode: "02543"
+creator_state: "Massachusetts"
+creator_country:  "USA"
+creator_phone: "508-495-4727"
+creator_sector: "public"
+creator_type: "institution"
+creator_url: "https://apps-nefsc.fisheries.noaa.gov/drifter/"
+
+contributor_name: "RPS"
+contributor_email: "devops@rpsgroup.com"
+contributor_role: "editor"
+contributor_role_vocabulary: "http://vocab.nerc.ac.uk/collection/G04/current/"
+contributor_url: "https://www.rpsgroup.com/"
+
+project: NOAA Fisheries Science Center Drifter Program
+instrument: TEMPERATURE PROFILERS
+instrument_vocabulary: GCMD Earth Science Keywords. Version 5.3.3
+platform: boat
+platform_vocabulary: IOOS Platform Vocabulary
+platform_name: Lobster Boat Vessel
+#wmo_platform_code: N/A

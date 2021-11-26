@@ -1,0 +1,98 @@
+latitude:
+  coverage_content_type: "coordinate"
+  _CoordinateAxisType: "Lat"
+  _FillValue: -9999999.0 # double
+  colorBarMaximum: 90.0 # double
+  colorBarMinimum: -90.0 # double
+  standard_name_url: "http//vocab.nerc.ac.uk/collection/P07/current/CFSN0600/"
+  long_name: "Latitude of the station, best estimate"
+  standard_name: "latitude"
+  units: "degree_north"
+  valid_min: -90.0
+  valid_max: 90.0
+  axis: "Y"
+
+longitude:
+  coverage_content_type: "coordinate"
+  _CoordinateAxisType: "Lon"
+  _FillValue: -9999999.0 # double
+  colorBarMaximum: 180.0 # double
+  colorBarMinimum: -180.0 # double
+  ioos_category: "Location"
+  standard_name_url: "http//vocab.nerc.ac.uk/collection/P07/current/CFSN0554/"
+  long_name: "Longitude of the station, best estimate"
+  standard_name: "longitude"
+  units: "degree_east"
+  valid_min: -180.0
+  valid_max: 180.0
+  axis: "X"
+
+time:
+  _CoordinateAxisType: "Time"
+  _FillValue: -9999999.0 # double
+  axis: "T"
+  calendar: "proleptic_gregorian"
+  ioos_category:  "Time"
+  long_name: "Time"
+  standard_name: "time"
+  time_origin: "01-JAN-1970 000000"
+  units "seconds since: 1970-01-01T000000Z"
+
+depth:
+  _CoordinateAxisType: "Height"
+  _CoordinateZisPositive: "down"
+  _FillValue: -9999999.0 # double
+  axis: "Z"
+  colorBarMaximum: 8000.0 # double
+  colorBarMinimum: -8000.0 # double
+  colorBarPalette: "TopographyDepth"
+  ioos_category: "Location"
+  long_name: "Depth"
+  positive: "down"
+  standard_name: "depth"
+  units: "m"
+
+temperature:
+  _FillValue: -9999999.0 # double
+  colorBarMaximum: 40.0 # double
+  colorBarMinimum: -10.0 # double
+  coordinates: "time latitude longitude depth"
+  ioos_category: "Temperature"
+  long_name: "Mean Temperature"
+  units: "degrees C"
+
+stdtemperature:
+  _FillValue: -9999999.0 # double
+  colorBarMaximum: 5.0 # double
+  colorBarMinimum: 0.0 # double
+  coordinates: "time latitude longitude depth"
+  ioos_category: "Statistics"
+  long_name: "Temperature Standard Deviation"
+  units: "degrees C"
+
+depth_range:
+  _FillValue: -9999999.0 # double
+  colorBarMaximum: 8000.0 # double
+  colorBarMinimum: -8000.0 # double
+  colorBarPalette: "TopographyDepth"
+  coordinates: "time latitude longitude depth"
+  ioos_category: "Location"
+  long_name: "Depth Range?"
+  standard_name: "depth"
+  units: "m"
+
+hours:
+  _FillValue: -9999999.0 # double
+  coordinates: "time latitude longitude depth"
+  ioos_category: "Time"
+  long_name: "hours?"
+  units: "hours"
+
+flag:
+  _FillValue: -9999999.0 # double
+  colorBarMaximum: 150.0 # double
+  colorBarMinimum: 0.0 # double
+  coordinates: "time latitude longitude depth"
+  description: "flag: 0 good,flag: 1 near dock (ie test cast),flag=2 bad temperature outside [0 30] degC,flag=3 depth out of range [10 500] meters,flag=4 bottom depth not near (<15% different)  NGDC bottom depth"
+  ioos_category: "Quality"
+  long_name: "QA/QC Flag"

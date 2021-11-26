@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<erddapDatasets>
+<!-- GENERAL INFORMATION
+The information in this file specifies which datasets your ERDDAP will serve.
+The initial version of this file has a few examples which should work for you.
+But after your initial experiments with ERDDAP, 
+you should replace them with information for your datasets.
+
+You can change this document (e.g., add datasets, change metadata) while ERDDAP is running. 
+The changes will be detected the next time this document is read
+(as often as loadDatasetsMinMinutes).
+
+Each dataset has a reloadEveryNMinutes value (default = 10080 (one week)).
+When this document is reread, datasets that haven't been been reloaded in 
+their reloadEveryNMinutes will be reloaded.
+You only need to specify a reloadEveryNMinutes value if you anticipate that
+the dataset will change periodically.
+
+If this document has an xml error, processing will stop and an email
+will be sent to emailEverythingTo as specified in setup.xml.
+
+If you want to remove a dataset while ERDDAP is running, add 
+    active="false"
+to the dataset tag.  For example,
+    <dataset type="EDDGridFromDap" datasetID="erdMHchla8day" active="false">
+
+For more information, see 
+https://coastwatch.pfel.noaa.gov/erddap/download/setupDatasetsXml.html
+-->
+
+<!-- The tags below are described in setupDatasetsXml.html.
+     The defaults listed below are as of ERDDAP v2.00. -->
+<cacheMinutes></cacheMinutes>                                     <!-- default=60 --> 
+<decompressedCacheMaxGB></decompressedCacheMaxGB>                 <!-- default=10 --> 
+<decompressedCacheMaxMinutesOld></decompressedCacheMaxMinutesOld> <!-- default=15 --> 
+<drawLandMask></drawLandMask>                                     <!-- "over", "under" (default), "outline", or "off" -->
+<emailDiagnosticsToErdData></emailDiagnosticsToErdData>           <!-- "true (default) or "false" -->
+<graphBackgroundColor></graphBackgroundColor>                     <!-- 0xAARRGGBB, default is 0xffccccff -->
+<ipAddressMaxRequests></ipAddressMaxRequests>                     <!-- current default=7 -->
+<ipAddressMaxRequestsActive></ipAddressMaxRequestsActive>         <!-- current default=2 -->
+<ipAddressUnlimited></ipAddressUnlimited>                         <!-- default=(empty) -->
+<loadDatasetsMinMinutes></loadDatasetsMinMinutes>                 <!-- usually=default=15 -->
+<loadDatasetsMaxMinutes></loadDatasetsMaxMinutes>                 <!-- default=60 -->
+<logLevel></logLevel> <!-- "warning" (fewest messages), "info" (default), or "all" (most messages) -->
+<nGridThreads></nGridThreads>                                     <!-- default=1 -->
+<nTableThreads></nTableThreads>                                   <!-- default=1 -->
+<partialRequestMaxBytes></partialRequestMaxBytes>                 <!-- default=490000000 -->
+<partialRequestMaxCells></partialRequestMaxCells>                 <!-- default=10000000 -->
+<slowDownTroubleMillis></slowDownTroubleMillis>                   <!-- default=1000 -->
+<unusualActivity></unusualActivity>                               <!-- default=10000 -->
+<!-- The defaults for the following tags are in messages.xml. -->
+<startHeadHtml5></startHeadHtml5>                                
+<endBodyHtml5></endBodyHtml5>
+<standardLicense></standardLicense>
+<standardContact></standardContact>
+<standardDataLicenses></standardDataLicenses>
+<standardDisclaimerOfEndorsement></standardDisclaimerOfEndorsement>
+<standardDisclaimerOfExternalLinks></standardDisclaimerOfExternalLinks>
+<standardGeneralDisclaimer></standardGeneralDisclaimer>
+
+<standardPrivacyPolicy><![CDATA[
+<br>&nbsp;
+<hr>
+<h2><a class="selfLink" id="privacyPolicy" href="#privacyPolicy" rel="help">Privacy Policy</a></h2>
+ERDDAP follows 
+<a rel="bookmark" href="https://www.noaa.gov/protecting-your-privacy"
+  >NOAA's Privacy Policy Guidelines</a>.
+]]></standardPrivacyPolicy>
+
+<startBodyHtml5><![CDATA[ 
+<body>
+<table class="compact nowrap" style="width:100%; background-color:#128CB5;"> 
+  <tr> 
+    <td style="text-align:center; width:80px;"><a rel="bookmark"
+      href="https://www.noaa.gov/"><img 
+      title="National Oceanic and Atmospheric Administration" 
+      src="&erddapUrl;/images/noaab.png" alt="NOAA"
+      style="vertical-align:middle;"></a></td> 
+    <td style="text-align:left; font-size:x-large; color:#FFFFFF; ">
+      <strong>ERDDAP</strong>
+      <br><small><small><small>Easier access to scientific data</small></small></small>
+      </td> 
+    <td style="text-align:right; font-size:small;"> 
+      &loginInfo; &nbsp; &nbsp;
+      <br>Brought to you by 
+      <a title="National Oceanic and Atmospheric Administration" rel="bookmark"
+      href="https://www.noaa.gov">NOAA</a>  
+      <a title="National Marine Fisheries Service" rel="bookmark"
+      href="https://www.fisheries.noaa.gov">NMFS</a>  
+      <a title="Southwest Fisheries Science Center" rel="bookmark"
+      href="https://swfsc.noaa.gov">SWFSC</a> 
+      <a title="Environmental Research Division" rel="bookmark"
+      href="https://www.fisheries.noaa.gov/about/environmental-research-division-southwest-fisheries-science-center">ERD</a>  
+      &nbsp; &nbsp;
+      </td> 
+  </tr> 
+</table>
+]]></startBodyHtml5>
+
+<theShortDescriptionHtml><![CDATA[ 
+<h1>ERDDAP</h1>
+ERDDAP is a data server that gives you a simple, consistent way to download 
+subsets of scientific datasets in common file formats and make graphs and maps. 
+This particular ERDDAP installation has oceanographic data
+(for example, data from satellites and buoys).
+
+[standardShortDescriptionHtml]
+
+]]></theShortDescriptionHtml>
+
+<!-- If you want to refuse requests from certain clients
+  (e.g., to fend off a Denial of Service attack or an overly zealous web robot), 
+  add their numeric IP address (e.g., 123.45.67.89) to this comma-separated list. 
+  You can also replace the last number in an IP address with * to block 0-255 (e.g., 123.45.67.*).
+  See your ERDDAP daily report for a list/tally of the most active requesters. -->
+<requestBlacklist></requestBlacklist>
+
+
+<!-- If you want to prevent specific people from using the email/URL subscription
+     system, add their email addresses to this comma-separated list. 
+     You can use the name "*" to blacklist an entire domain, e.g., *@example.com .
+-->
+<subscriptionEmailBlacklist>your.email@yourinstitution.edu, some.name@company.com, 
+another.name@company.com, *@example.com</subscriptionEmailBlacklist>
+
+<dataset type="EDDTableFromMultidimNcFiles" datasetID="test_fcc3_16c9_05ef" active="true">
+    <reloadEveryNMinutes>60</reloadEveryNMinutes>
+    <updateEveryNMillis>10000</updateEveryNMillis>
+    <fileDir>/home/mmc/Documents/erddap/test/</fileDir>
+    <fileNameRegex>.*\.nc</fileNameRegex>
+    <recursive>true</recursive>
+    <pathRegex>.*</pathRegex>
+    <metadataFrom>last</metadataFrom>
+    <standardizeWhat>0</standardizeWhat>
+    <removeMVRows>true</removeMVRows>
+    <sortFilesBySourceNames></sortFilesBySourceNames>
+    <fileTableInMemory>false</fileTableInMemory>
+    <!-- sourceAttributes>
+        <att name="acknowledgement">N/A</att>
+        <att name="cdm_data_type">Point</att>
+        <att name="comment">free text</att>
+        <att name="contributor_email">devops@rpsgroup.com</att>
+        <att name="contributor_name">RPS</att>
+        <att name="contributor_role">editor</att>
+        <att name="contributor_role_vocabulary">http://vocab.nerc.ac.uk/collection/G04/current/</att>
+        <att name="contributor_url">https://www.rpsgroup.com/</att>
+        <att name="Conventions">CF-1.7, ACDD-1.3</att>
+        <att name="creator_address">86 Water St</att>
+        <att name="creator_city">Woods Hole</att>
+        <att name="creator_country">USA</att>
+        <att name="creator_email">james.manning@noaa.gov</att>
+        <att name="creator_institution">NOAA Fisheries Science Center</att>
+        <att name="creator_name">NOAA Fisheries Science Center</att>
+        <att name="creator_phone">508-495-4727</att>
+        <att name="creator_postalcode">02543</att>
+        <att name="creator_sector">public</att>
+        <att name="creator_state">Massachusetts</att>
+        <att name="creator_type">institution</att>
+        <att name="creator_url">https://apps-nefsc.fisheries.noaa.gov/drifter/</att>
+        <att name="date_created">2021-10-24T16:11:04</att>
+        <att name="date_metadata_modified">2021-10-24T16:11:04</att>
+        <att name="featureType">Point</att>
+        <att name="geospatial_bounds_crs">EPSG:4326</att>
+        <att name="geospatial_lat_units">degrees_north</att>
+        <att name="geospatial_lon_units">degrees_east</att>
+        <att name="history">2015-06-13 13:03:00 creation</att>
+        <att name="institution">NOAA</att>
+        <att name="instrument">TEMPERATURE PROFILERS</att>
+        <att name="instrument_vocabulary">GCMD Earth Science Keywords. Version 5.3.3</att>
+        <att name="keywords">Oceans &gt; Ocean Circulation &gt; Ocean Currents, Oceans &gt; Ocean Temperature &gt; Water Temperature, sea_water_temperature
+</att>
+        <att name="keywords_vocabulary">Global Change Master Directory (GCMD) Earth Science Keywords; CF Standard Name Table v67</att>
+        <att name="license">These data may be redistributed and used without restriction.</att>
+        <att name="metadata_link">N/A</att>
+        <att name="platform">boat</att>
+        <att name="platform_name">Lobster Boat Vessel</att>
+        <att name="platform_vocabulary">IOOS Platform Vocabulary</att>
+        <att name="program">NOAA Fisheries Science Center</att>
+        <att name="project">NOAA Fisheries Science Center Drifter Program</att>
+        <att name="references">https://apps-nefsc.fisheries.noaa.gov/drifter/</att>
+        <att name="sea_name">Atlantic Ocean</att>
+        <att name="source">https://apps-nefsc.fisheries.noaa.gov/drifter/emolt_QCed.csv</att>
+        <att name="standard_name_vocabulary">CF Standard Name Table v67</att>
+        <att name="summary">These data are ocean profile data measured by profiling from Lobster Boat Vessels at a specific latitude,  longitude, and date nominally from varied depths. 
+</att>
+        <att name="title">NOAA Fisheries Science Center Drifter Data Temperature Profile Data from Lobster Boat Vessels.</att>
+    </sourceAttributes -->
+    <!-- Please specify the actual cdm_data_type (TimeSeries?) and related info below, for example...
+        <att name="cdm_timeseries_variables">station_id, longitude, latitude</att>
+        <att name="subsetVariables">station_id, longitude, latitude</att>
+    -->
+    <addAttributes>
+        <att name="acknowledgement">null</att>
+        <att name="contributor_role_vocabulary">https://vocab.nerc.ac.uk/collection/G04/current/</att>
+        <att name="Conventions">CF-1.7, ACDD-1.3, COARDS</att>
+        <att name="date_created">2021-10-24T16:11:04Z</att>
+        <att name="date_metadata_modified">2021-10-24T16:11:04Z</att>
+        <att name="infoUrl">https://apps-nefsc.fisheries.noaa.gov/drifter/</att>
+        <att name="keywords">best, boat, center, circulation, currents, data, depth, depth_range, deviation, drifter, Earth Science &gt; Oceans &gt; Ocean Circulation &gt; Ocean Currents, Earth Science &gt; Oceans &gt; Ocean Temperature &gt; Water Temperature, estimate, fisheries, flag, hours, index, latitude, lobster, longitude, mean, noaa, ocean, oceans, profile, quality, range, science, sea_water_temperature, standard, station, statistics, stdtemperature, temperature, time, vessels, water</att>
+        <att name="keywords_vocabulary">GCMD Science Keywords</att>
+        <att name="metadata_link">null</att>
+        <att name="sourceUrl">(local files)</att>
+        <att name="summary">These data are ocean profile data measured by profiling from Lobster Boat Vessels at a specific latitude,  longitude, and date nominally from varied depths.</att>
+        <att name="testOutOfDate">now-3days</att>
+    </addAttributes>
+    <dataVariable>
+        <sourceName>time</sourceName>
+        <destinationName>time</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="_CoordinateAxisType">Time</att>
+            <att name="_FillValue" type="double">-9999999.0</att>
+            <att name="axis">T</att>
+            <att name="calendar">proleptic_gregorian</att>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Time</att>
+            <att name="standard_name">time</att>
+            <att name="time_origin">01-JAN-1970 000000</att>
+            <att name="units">seconds since 1970-01-01T000000Z</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="units">seconds since 1970-01-01T00:00:00Z</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>index</sourceName>
+        <destinationName>index</destinationName>
+        <dataType>int</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="_FillValue" type="int">2147483647</att>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Index</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>latitude</sourceName>
+        <destinationName>latitude</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="_CoordinateAxisType">Lat</att>
+            <att name="_FillValue" type="double">-9999999.0</att>
+            <att name="axis">Y</att>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+            <att name="coverage_content_type">coordinate</att>
+            <att name="long_name">Latitude of the station, best estimate</att>
+            <att name="standard_name">latitude</att>
+            <att name="standard_name_url">http//vocab.nerc.ac.uk/collection/P07/current/CFSN0600/</att>
+            <att name="units">degree_north</att>
+            <att name="valid_max" type="double">90.0</att>
+            <att name="valid_min" type="double">-90.0</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Location</att>
+            <att name="units">degrees_north</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>longitude</sourceName>
+        <destinationName>longitude</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="_CoordinateAxisType">Lon</att>
+            <att name="_FillValue" type="double">-9999999.0</att>
+            <att name="axis">X</att>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+            <att name="coverage_content_type">coordinate</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Longitude of the station, best estimate</att>
+            <att name="standard_name">longitude</att>
+            <att name="standard_name_url">http//vocab.nerc.ac.uk/collection/P07/current/CFSN0554/</att>
+            <att name="units">degree_east</att>
+            <att name="valid_max" type="double">180.0</att>
+            <att name="valid_min" type="double">-180.0</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="units">degrees_east</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>depth</sourceName>
+        <destinationName>depth</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="_CoordinateAxisType">Height</att>
+            <att name="_CoordinateZisPositive">down</att>
+            <att name="_FillValue" type="double">-9999999.0</att>
+            <att name="axis">Z</att>
+            <att name="colorBarMaximum" type="double">8000.0</att>
+            <att name="colorBarMinimum" type="double">-8000.0</att>
+            <att name="colorBarPalette">TopographyDepth</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Depth</att>
+            <att name="positive">down</att>
+            <att name="standard_name">depth</att>
+            <att name="units">m</att>
+        </sourceAttributes -->
+        <addAttributes>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>depth_range</sourceName>
+        <destinationName>depth_range</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="double">-9999999.0</att>
+            <att name="colorBarMaximum" type="double">8000.0</att>
+            <att name="colorBarMinimum" type="double">-8000.0</att>
+            <att name="colorBarPalette">TopographyDepth</att>
+            <att name="coordinates">time latitude longitude depth</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Depth Range?</att>
+            <att name="standard_name">depth</att>
+            <att name="units">m</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>hours</sourceName>
+        <destinationName>hours</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="double">-9999999.0</att>
+            <att name="coordinates">time latitude longitude depth</att>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">hours?</att>
+            <att name="units">hours</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>temperature</sourceName>
+        <destinationName>temperature</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="double">-9999999.0</att>
+            <att name="colorBarMaximum" type="double">40.0</att>
+            <att name="colorBarMinimum" type="double">-10.0</att>
+            <att name="coordinates">time latitude longitude depth</att>
+            <att name="ioos_category">Temperature</att>
+            <att name="long_name">Mean Temperature</att>
+            <att name="units">degrees C</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+            <att name="units">degree_C</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>stdtemperature</sourceName>
+        <destinationName>stdtemperature</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="double">-9999999.0</att>
+            <att name="colorBarMaximum" type="double">5.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="coordinates">time latitude longitude depth</att>
+            <att name="ioos_category">Statistics</att>
+            <att name="long_name">Temperature Standard Deviation</att>
+            <att name="units">degrees C</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="coordinates">null</att>
+            <att name="units">degree_C</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>flag</sourceName>
+        <destinationName>flag</destinationName>
+        <dataType>int</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="_FillValue" type="int">2147483647</att>
+            <att name="colorBarMaximum" type="double">150.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Quality</att>
+            <att name="long_name">Flag</att>
+        </addAttributes>
+    </dataVariable>
+</dataset>
+
+</erddapDatasets>
+

@@ -1,0 +1,49 @@
+ERDDAP Setup
+https://coastwatch.pfeg.noaa.gov/erddap/download/setup.html
+
+tomcat location:
+sudo su - tomcat
+tomcat@mmc-VirtualBox:/usr/local/apache-tomcat-9.0.53/bin
+
+Directory Access Denied Fix:
+as mmc user:
+
+Change ownership of the apache-tomcat directory tree to the tomcat user.
+sudo chown -R tomcat apache-tomcat-9.0.39
+(but substitute the actual name of your tomcat directory).
+Change the "group" to be tomcat, your username, or the name of a small group that includes tomcat and all the administrators of Tomcat/ERDDAP, e.g.,
+sudo chgrp -R yourUserName apache-tomcat-9.0.39
+
+GenerateDatasets.xml:
+mmc@mmc-VirtualBox:/usr/local/apache-tomcat-9.0.53/webapps/erddap/WEB-INF$ sh GenerateDatasetsXml.sh 
+
+Which EDDType? 
+EDDTableFromMultidimNcFiles
+
+Starting directory (default="")
+? 
+/home/mmc/Documents/erddap/test/nc202110231418/ <--- Works for a single file
+
+
+File name regex (e.g., ".*\.nc") (default="*.nc")
+? 
+./*.nc <--- Works for a single file
+.*\.nc
+
+Full file name of one file (or leave empty to use first matching fileName) (default="")
+? 
+/home/mmc/Documents/erddap/test/nc202110231418/emolt_enhanced_202110241611.nc
+
+dasdds:
+datasetID="test_fcc3_16c9_05ef"
+
+ERDDAP Server Location:
+ssh mmcmanus@10.165.32.30
+CFwdUp=gQnA!7yNv
+
+Server script location:
+root@10.165.32.30
+/data/lobsterboat/LobsterBoatDownload_python3.py
+
+There is a venv setup in /data/lobsterboat/
+Activate using: source /data/lobsterboat/bin/activate
